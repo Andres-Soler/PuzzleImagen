@@ -1,0 +1,73 @@
+.puzzle-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+
+  background: #f3f4f6;
+}
+
+.puzzle-row {
+  display: flex;
+  width: 400px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.puzzle-piece {
+  height: 250px;
+  border: 2px solid #222;
+  cursor: pointer;
+  transition: 
+    transform 0.25s ease,
+    filter 0.2s ease,
+    border 0.3s ease;
+}
+
+/* hover */
+.puzzle-piece:hover {
+  transform: translateY(-4px) scale(1.03);
+  filter: brightness(1.1);
+}
+
+/* cuando el puzzle se resuelve */
+.solved .puzzle-piece {
+  border: none;
+}
+
+.game-card {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.background-shape {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #60a5fa, transparent 70%);
+  filter: blur(120px);
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.shape1 {
+  top: -150px;
+  left: -150px;
+}
+
+.shape2 {
+  bottom: -150px;
+  right: -150px;
+}
+
