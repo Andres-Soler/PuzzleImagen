@@ -24,8 +24,33 @@ export default function PuzzleGato() {
   }
 
   return (
-  <div style={{ background: "red", height: "100vh", color: "white" }}>
-    FUNCIONA
-  </div>
-);
+    <div className="puzzle-container">
+
+      <div className="background-shape shape1"></div>
+      <div className="background-shape shape2"></div>
+
+      <div className="game-card">
+        <h2>Puzzle Gato 🐱</h2>
+
+        <div className={`puzzle-row ${solved ? "solved" : ""}`}>
+          {pieces.map((piece, index) => (
+            <div
+              key={index}
+              className="puzzle-piece"
+              onClick={() => swap(index, (index + 1) % columns)}
+              style={{
+                width: `${100 / columns}%`,
+                backgroundImage: `url(${gato})`, // 🔥 USAR IMPORT
+                backgroundSize: `${columns * 100}% 100%`,
+                backgroundPosition: `${(piece * 100) / (columns - 1)}% 0`
+              }}
+            />
+          ))}
+        </div>
+
+        {solved && <h3>🎉 ¡Lo resolviste!</h3>}
+      </div>
+
+    </div>
+  );
 }
